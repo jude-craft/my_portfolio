@@ -2,8 +2,9 @@
 
 A **multi-page responsive portfolio website** built using **HTML5, CSS3, and JavaScript**, showcasing my skills, projects, and contact information. This project was developed as a final assignment to demonstrate proficiency in web development concepts including **semantic HTML, responsive design, interactivity, code organization, and deployment**.  
 
-🌍 **Live Demo:** [derrickjuma.netlify.app]  
-📂 **Repository:** [https://github.com/DevJude254/my_portfolio.git]  
+ 🌍 **Live Demo:** [derrickjuma.netlify.app](https://derrickjuma.netlify.app)  
+📂 **Repository:** [my_portfolio](https://github.com/DevJude254/my_portfolio)  
+
 
 ---
 
@@ -20,9 +21,6 @@ The goal of this project is to build a **production-ready personal portfolio web
    ```
  my_portfolio/
  │── index.html          # Homepage
- │── about.html          # About Me page
- │── projects.html       # Projects/Portfolio page
- │── contact.html        # Contact page
  │
  ├── css/
  │   └── style.css       # Main stylesheet
@@ -33,7 +31,7 @@ The goal of this project is to build a **production-ready personal portfolio web
  ├── assets/             # Optimized images used across pages
  │
  └── README.md           # Project documentation
- 
+
    ```
 
 ---
@@ -53,8 +51,13 @@ The goal of this project is to build a **production-ready personal portfolio web
 - Showcases key projects with descriptions and links.  
 - Interactive hover effects and responsive grid layout.  
 
+### 3. **Skills Page**  
+- Shows the skills i have
+
+### 3. **Experience Page**  
+- Showcases the experiences i have both related to my skills
+
 ### 4. **Contact Page**  
-- Includes a functional form with basic **JavaScript validation**.  
 - Links to email and social media accounts.  
 
 ---
@@ -82,7 +85,7 @@ The goal of this project is to build a **production-ready personal portfolio web
 ## 🚀 Deployment  
 
 The website is deployed and accessible via this link:  
-👉 [derrickjuma.netlify.app]
+👉 [Derrick Juma](derrickjuma.netlify.app)
 
 Deployment method:  
 - GitHub Pages (or Netlify / Vercel depending on your choice).  
@@ -116,15 +119,13 @@ Learned to organize code and assets in a scalable manner.
 
 Successfully deployed a website to make it accessible online.
 
-📧 Contact
 
-If you'd like to connect or learn more about my work:
+## 📧 Contact  
 
-Email: [derekjude254@gmail.com]
+- **Email:** [derekjude254@gmail.com](mailto:derekjude254@gmail.com)  
+- **LinkedIn:** [Derrick Juma](https://www.linkedin.com/in/derrick-juma-840529311/)  
+- **GitHub:** [DevJude254](https://github.com/DevJude254)  
 
-LinkedIn: [https://www.linkedin.com/in/derrick-juma-840529311/]
-
-GitHub: [https://github.com/DevJude254]
 
 ✨ This project marks a milestone in my web development journey, showcasing my ability to plan, build, and deploy a production-ready website.
 
