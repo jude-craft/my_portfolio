@@ -17,23 +17,24 @@ The goal of this project is to build a **production-ready personal portfolio web
 ---
 
 ## 🗂️ Project Structure  
-
-my_portfolio/
-│── index.html          # Homepage
-│── about.html          # About Me page
-│── projects.html       # Projects/Portfolio page
-│── contact.html        # Contact page
-│
-├── css/
-│   └── style.css       # Main stylesheet
-│
-├── js/
-│   └── script.js       # Interactivity (menu toggle, animations, etc.)
-│
-├── images/             # Optimized images used across pages
-│
-└── README.md           # Project documentation
-
+   ```
+ my_portfolio/
+ │── index.html          # Homepage
+ │── about.html          # About Me page
+ │── projects.html       # Projects/Portfolio page
+ │── contact.html        # Contact page
+ │
+ ├── css/
+ │   └── style.css       # Main stylesheet
+ │
+ ├── js/
+ │   └── script.js       # Interactivity (menu toggle, animations, etc.)
+ │
+ ├── assets/             # Optimized images used across pages
+ │
+ └── README.md           # Project documentation
+ 
+   ```
 
 ---
 
