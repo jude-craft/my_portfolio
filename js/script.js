@@ -1,4 +1,3 @@
-// ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize loading screen
     initializeLoadingScreen();
