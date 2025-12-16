@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize loading screen
     initializeLoadingScreen();
     
-    // Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 800,
         easing: 'ease-out-cubic',
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         delay: 0
     });
 
-    // Initialize all components
+
     initializeNavigation();
     initializeTheme();
     initializeScrollEffects();
@@ -24,9 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSmoothScrolling();
     initializeLazyLoading();
     initializeAccessibility();
+    initializeContactForm();
 });
 
-// ===== LOADING SCREEN =====
+// LOADING SCREEN 
 function initializeLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     
@@ -41,7 +40,7 @@ function initializeLoadingScreen() {
     }, 1500);
 }
 
-// ===== NAVIGATION =====
+//  NAVIGATION
 function initializeNavigation() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -75,7 +74,7 @@ function initializeNavigation() {
     });
 }
 
-// ===== THEME MANAGEMENT =====
+// THEME MANAGEMENT
 function initializeTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -147,7 +146,7 @@ function setStoredTheme(theme) {
     }
 }
 
-// ===== SCROLL EFFECTS =====
+// SCROLL EFFECTS 
 function initializeScrollEffects() {
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -202,7 +201,7 @@ function initializeScrollEffects() {
     });
 }
 
-// ===== TYPING EFFECT =====
+//  TYPING EFFECT
 function initializeTypingEffect() {
     const typingText = document.getElementById('typing-text');
     if (!typingText) return;
@@ -248,7 +247,7 @@ function initializeTypingEffect() {
     setTimeout(typeWriter, 1000);
 }
 
-// ===== PROJECT FILTER =====
+// PROJECT FILTER
 function initializeProjectFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -297,7 +296,7 @@ function initializeSkillBars() {
     });
 }
 
-// ===== STATS COUNTER =====
+//  STATS COUNTER 
 function initializeStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
@@ -364,7 +363,7 @@ function initializeParallaxEffects() {
     });
 }
 
-// ===== SMOOTH SCROLLING =====
+// SMOOTH SCROLLING 
 function initializeSmoothScrolling() {
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -388,7 +387,7 @@ function initializeSmoothScrolling() {
     });
 }
 
-// ===== LAZY LOADING =====
+//  LAZY LOADING 
 function initializeLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
     
@@ -408,7 +407,7 @@ function initializeLazyLoading() {
     });
 }
 
-// ===== ACCESSIBILITY =====
+//  ACCESSIBILITY 
 function initializeAccessibility() {
     // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -443,7 +442,7 @@ function initializeAccessibility() {
     });
 }
 
-// ===== UTILITY FUNCTIONS =====
+// UTILITY FUNCTIONS
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -469,7 +468,7 @@ function throttle(func, limit) {
     };
 }
 
-// ===== PERFORMANCE OPTIMIZATION =====
+// PERFORMANCE OPTIMIZATIONS
 // Throttle scroll events
 const throttledScrollHandler = throttle(() => {
     // Scroll-related functions
@@ -484,7 +483,7 @@ const debouncedResizeHandler = debounce(() => {
 
 window.addEventListener('resize', debouncedResizeHandler);
 
-// ===== ERROR HANDLING =====
+//  ERROR HANDLING 
 window.addEventListener('error', (e) => {
     console.error('JavaScript error:', e.error);
 });
@@ -493,7 +492,7 @@ window.addEventListener('unhandledrejection', (e) => {
     console.error('Unhandled promise rejection:', e.reason);
 });
 
-// ===== SERVICE WORKER REGISTRATION (for PWA features) =====
+// SERVICE WORKER REGISTRATION (for PWA features) 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
@@ -506,7 +505,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// ===== ANALYTICS (if needed) =====
+// ANALYTICS
 function trackEvent(eventName, eventData = {}) {
     // Google Analytics or other analytics tracking
     if (typeof gtag !== 'undefined') {
@@ -532,7 +531,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ===== EXPORT FOR MODULE USE =====
+// EXPORT FOR MODULE USE 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         initializeLoadingScreen,
@@ -552,4 +551,46 @@ if (typeof module !== 'undefined' && module.exports) {
         throttle,
         trackEvent
     };
+}
+
+// CONTACT FORM
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert('Please fill in all fields.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                return;
+            }
+            
+            // Simulate sending (replace with actual API call)
+            setTimeout(() => {
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                
+                // Reset form
+                this.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 1000);
+        });
+    }
 }
