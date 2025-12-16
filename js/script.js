@@ -277,22 +277,29 @@ function initializeProjectFilter() {
 
 // ===== SKILL BARS =====
 function initializeSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-bar');
-    
+    const skillItems = document.querySelectorAll('.skill-item');
+
     const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillBar = entry.target;
-                const level = skillBar.getAttribute('data-level');
-                
-                skillBar.style.transform = `scaleX(${level / 100})`;
-                skillBar.style.transition = 'transform 1.5s ease-out';
+                const skillItem = entry.target;
+                const progressCircle = skillItem.querySelector('.progress-ring-circle');
+                const skillLevel = skillItem.querySelector('.skill-level');
+
+                if (progressCircle && skillLevel) {
+                    const level = parseInt(skillLevel.textContent);
+                    const circumference = 2 * Math.PI * 35; // radius = 35
+                    const offset = circumference - (level / 100) * circumference;
+
+                    progressCircle.style.strokeDashoffset = offset;
+                    progressCircle.style.transition = 'stroke-dashoffset 2s ease-out';
+                }
             }
         });
     }, { threshold: 0.5 });
 
-    skillBars.forEach(bar => {
-        skillObserver.observe(bar);
+    skillItems.forEach(item => {
+        skillObserver.observe(item);
     });
 }
 
